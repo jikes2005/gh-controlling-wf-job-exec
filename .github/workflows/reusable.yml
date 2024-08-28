@@ -10,15 +10,14 @@ on:
         outputs:
             result:
                 description: The result of the deployment operation
-                value: ${{ jobs.deploy.outputs.outcomes }}
+                value: ${{ jobs.deploy.outputs.outcome }}
         # secrets:
         #     some-secret:
         #         required: false
 jobs:    
     deploy:
         outputs:
-            outcomes:
-                outcome: ${{ steps.set-result.outputs.step-result }}
+            outcome: ${{ steps.set-result.outputs.step-result }}
         runs-on: ubuntu-latest
         steps:
             - name: Get Code
