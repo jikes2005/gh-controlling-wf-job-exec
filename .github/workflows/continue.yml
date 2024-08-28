@@ -38,6 +38,10 @@ jobs:
         continue-on-error: true
         id: run-tests
         run: npm run test
+      - name: Run Tests Status
+        run: |
+          echo Conclusion: ${{ steps.run-tests.conclusion }}
+          echo Outcome: ${{ steps.run-tests.outcome }}
       - name: Upload test report
         if: failure() && steps.run-tests.outcome == 'failure'
         uses: actions/upload-artifact@v3
